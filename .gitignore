@@ -1,0 +1,20 @@
+node_modules/
+.env
+dist/
+.DS_Store
+client/node_modules/
+client/dist/
+client/npm-debug.log*
+client/yarn-debug.log*
+client/yarn-error.log*
+client/test/unit/coverage/
+client/test/e2e/reports/
+client/selenium-debug.log
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln

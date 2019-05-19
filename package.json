@@ -1,0 +1,51 @@
+{
+  "name": "chat-app",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nodemon -w app --exec \" NODE_ENV=dev DEBUG=app babel-node ./app/bin/www \"",
+    "prestart": "npm run -s build && npm rebuild bcrypt --update-binary",
+    "build": "babel app -s -D -d dist",
+    "start": "node dist/bin/www",
+    "test": "NODE_ENV=test DEBUG=app jest --detectOpenHandles",
+    "coverage": "jest --collectCoverageFrom=app/**.js --coverage src",
+    "lint": "eslint --ignore-pattern 'app/__test__/*' --fix app/*/*.js app/*/*/*.js; exit 0"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "~1.4.3",
+    "cors": "^2.8.5",
+    "debug": "~2.6.9",
+    "dotenv": "^8.0.0",
+    "express": "~4.16.0",
+    "express-api-problem": "^1.2.6",
+    "express-session": "^1.16.1",
+    "http-errors": "~1.6.2",
+    "http-status-codes": "^1.3.2",
+    "ioredis": "^4.9.3",
+    "joi": "^14.3.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.5.8",
+    "morgan": "~1.9.0",
+    "redis": "^2.8.0",
+    "socket.io": "^2.2.0",
+    "socket.io-redis": "^5.2.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.3",
+    "@babel/core": "^7.4.4",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.4.4",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-babel": "^5.2.0",
+    "eslint-plugin-import": "^2.17.2",
+    "eslint-plugin-jest": "22.4.1",
+    "jest": "^24.7.1",
+    "jest-cli": "^24.7.1",
+    "lint": "^1.1.2",
+    "nodemon": "^1.18.4"
+  }
+}
