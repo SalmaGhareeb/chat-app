@@ -15,10 +15,11 @@ const schema = new mongoose.Schema({
     },
     type: {
         type: String,
-        default: '1'
+        default: 'Public'
     }
 });
 
 
 
-module.exports = mongoose.model('chat-room', schema);
+
+module.exports = mongoose.model('chat', schema);

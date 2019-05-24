@@ -6,7 +6,12 @@ const {
 const MessageSchema = new Schema({
     'handle': String,
     'message': String,
-    'created': Date
+    'created': Date,
+    'chat': {
+        type: Schema.Types.ObjectId,
+        ref: 'chat',
+        required: true
+    }
 });
 
 module.exports = mongoose.model('message', MessageSchema);

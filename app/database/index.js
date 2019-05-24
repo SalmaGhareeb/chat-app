@@ -1,7 +1,7 @@
 require('dotenv').config();
 const Mongoose = require('mongoose');
 const user = require('./schema/user');
-const chatroom = require('./schema/chat-room');
+const chat = require('./schema/chat');
 const message = require('./schema/message');
 
 var dbURI = "mongodb://" +
@@ -23,7 +23,7 @@ module.exports = {
     Mongoose,
     models: {
         user: user,
-        chatroom: chatroom,
+        chat: chat,
         message: message
     }
 };

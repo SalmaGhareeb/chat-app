@@ -7,13 +7,20 @@ let ioEvents = function (io) {
 
         socket.on('MESSAGE', async function (chat) {
             chat.created = new Date();
-            let response = await new message(chat).save().then(function (e, message) {
-                console.log(e);
+            console.log(chat);
+            
+            await new message(chat).save().then(function (e, message) {
+                console.log(message);
 
+            }).catch(e => {
+                console.log(e);
             });
-            console.log(response);
 
             io.emit('MESSAGE', chat);
+        });
+
+        socket.on('createChat', function (socket) {
+
         });
 
 
