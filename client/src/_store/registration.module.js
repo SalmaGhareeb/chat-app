@@ -12,8 +12,6 @@ export const registeration = {
     },
     actions: {
         register({ dispatch, commit }, data) {
-            console.log(data);
-
             userService.register(data).then(() => {
                 commit('registerSuccess');
                 router.push('/login');

@@ -9,7 +9,7 @@
   "scripts": {
     "build": "webpack --env development",
     "prestart": "npm run -S build",
-    "start": "webpack-dev-server --open"
+    "start": "webpack-dev-server --open --disable-host-check"
   },
   "dependencies": {
     "axios": "^0.18.0",

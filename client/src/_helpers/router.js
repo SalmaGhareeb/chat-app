@@ -1,17 +1,26 @@
 import Vue from 'vue';
-import Router from 'vue-router';
+import VueRouter from 'vue-router';
 
 import HomePage from '../home/HomePage';
-
 import ChatPage from '../Components/Chat';
+import Rooms from '../Components/ChatGroups';
 import LoginPage from '../login/LoginPage';
 import RegisterPage from '../login/RegisterPage';
 
-Vue.use(Router);
+Vue.use(VueRouter);
 
-export const router = new Router({
-  mode: 'history',
-  routes: [{
+// eslint-disable-next-line import/prefer-default-export
+export const router = new VueRouter({
+  routes: [
+    {
+      path: '/room/:id',
+      component: ChatPage,
+      props: true,
+      meta: {
+        windowRedirectAfter: true,
+      }
+    },
+    {
       path: '/',
       component: HomePage
     },
@@ -25,10 +34,8 @@ export const router = new Router({
     },
     {
       path: '/chat',
-      component: ChatPage
+      component: Rooms
     },
-
-    // otherwise redirect to home
     {
       path: '*',
       redirect: '/'
@@ -38,7 +45,7 @@ export const router = new Router({
 
 router.beforeEach((to, from, next) => {
   // redirect to login page if not logged in and trying to access a restricted page
-  const publicPages = ['/login','/register'];
+  const publicPages = ['/login', '/register'];
   const authRequired = !publicPages.includes(to.path);
   const loggedIn = localStorage.getItem('user');
 

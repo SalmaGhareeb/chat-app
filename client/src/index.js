@@ -1,10 +1,11 @@
 import Vue from 'vue';
 import 'babel-polyfill';
 import VueSocketIO from 'vue-socket.io';
+import Vuetify from 'vuetify';
+
 import { store } from './_store';
 import { router } from './_helpers';
-import Vuetify from 'vuetify';
-// import 'vuetify/dist/vuetify.min.css';
+
 import App from './app/App';
 
 const SocketIO = require('socket.io-client');
@@ -21,8 +22,7 @@ Vue.use(new VueSocketIO({
 }));
 
 new Vue({
-    el: '#app',
     router,
     store,
     render: h => h(App)
-});
+}).$mount('#app');
