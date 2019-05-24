@@ -18,6 +18,7 @@ services:
       command: npm run dev
       links:
         - mongo
+        - redis
   webpack:
     build: 
       context: ./.docker/webpack
